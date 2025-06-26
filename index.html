@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Portfolio - A.NATHANIEL ROHITH</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <style>
     * {
       margin: 0;
@@ -14,25 +13,12 @@
 
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(-45deg, #1f1c2c, #928dab, #1f1c2c, #928dab);
-      background-size: 400% 400%;
-      animation: gradientFlow 15s ease infinite;
+      background: #121212;
       color: #eee;
       line-height: 1.6;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
-    }
-
-    @keyframes gradientFlow {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-
-    @keyframes glowText {
-      0%, 100% { text-shadow: 0 0 10px #00bfff, 0 0 20px #00bfff; }
-      50% { text-shadow: 0 0 20px #66d9ff, 0 0 40px #00bfff; }
     }
 
     a {
@@ -46,28 +32,10 @@
     }
 
     header {
-      background: rgba(31, 31, 31, 0.7);
+      background: #1f1f1f;
       padding: 2rem 1rem;
       text-align: center;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
-    }
-
-    .greeting-text {
-      font-size: 1.8rem;
-      font-weight: bold;
-      color: #66d9ff;
-      animation: glowText 4s ease-in-out infinite;
-    }
-
-    header h1 {
-      font-size: 2.5rem;
-      margin-top: 0.5rem;
-      animation: glowText 4s ease-in-out infinite;
-    }
-
-    header p {
-      font-size: 1.2rem;
-      color: #bbb;
     }
 
     nav {
@@ -77,26 +45,16 @@
     nav a {
       margin: 0 15px;
       font-weight: bold;
-      transition: all 0.3s ease;
-      position: relative;
     }
 
-    nav a:hover {
-      text-shadow: 0 0 10px #00bfff;
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
     }
 
-    nav a::after {
-      content: "";
-      display: block;
-      width: 0%;
-      height: 2px;
-      background: #00bfff;
-      transition: width 0.3s ease;
-      margin: auto;
-    }
-
-    nav a:hover::after {
-      width: 100%;
+    header p {
+      font-size: 1.2rem;
+      color: #bbb;
     }
 
     main {
@@ -108,14 +66,6 @@
 
     section {
       margin-bottom: 3rem;
-      opacity: 0;
-      transform: translateY(50px);
-      transition: all 1s ease;
-    }
-
-    section.active {
-      opacity: 1;
-      transform: translateY(0);
     }
 
     h2 {
@@ -123,10 +73,6 @@
       border-bottom: 2px solid #00bfff;
       padding-bottom: 0.3rem;
       margin-bottom: 1rem;
-      background: linear-gradient(to right, #00bfff, #66d9ff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      text-transform: uppercase;
     }
 
     .profile-img {
@@ -137,15 +83,14 @@
 
     .profile-img img {
       width: 200px;
+      height: auto;
       border-radius: 12px;
       box-shadow: 0 0 12px #00bfff99;
       transition: transform 0.3s ease;
-      animation: floatPic 4s ease-in-out infinite;
     }
 
-    @keyframes floatPic {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-8px); }
+    .profile-img img:hover {
+      transform: scale(1.05);
     }
 
     .skills-list {
@@ -156,8 +101,7 @@
     }
 
     .skill {
-      background: rgba(34, 34, 34, 0.6);
-      backdrop-filter: blur(10px);
+      background: #222;
       padding: 14px 20px;
       border-radius: 24px;
       box-shadow: 0 0 10px #00bfff44;
@@ -167,12 +111,17 @@
       gap: 12px;
       font-size: 1.1rem;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
-      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .skill:hover {
+      transform: scale(1.12);
+      box-shadow: 0 0 16px #00bfffaa;
     }
 
     .skill img {
       width: 36px;
       height: 36px;
+      object-fit: contain;
     }
 
     .projects-grid {
@@ -191,30 +140,42 @@
       flex-direction: column;
       align-items: center;
       text-align: center;
-      background: rgba(34, 34, 34, 0.6);
-      backdrop-filter: blur(10px);
+      background: #222;
       padding: 1rem;
       border-radius: 12px;
       box-shadow: 0 0 12px #00bfff44;
       transition: box-shadow 0.3s ease, transform 0.3s ease;
-      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .project:hover {
+      box-shadow: 0 0 20px #00bfffaa;
+      transform: translateY(-5px);
     }
 
     .project img {
       max-width: 100%;
       max-height: 180px;
+      width: auto;
       border-radius: 8px;
       margin-bottom: 0.8rem;
       object-fit: contain;
     }
 
-    .project:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 0 20px #00bfffcc;
+    .project h3 {
+      margin-bottom: 0.5rem;
+    }
+
+    .project p {
+      color: #ccc;
+      font-size: 0.9rem;
     }
 
     .contact-info {
       text-align: center;
+    }
+
+    .contact-info p {
+      margin-bottom: 0.5rem;
     }
 
     .social-links {
@@ -226,6 +187,7 @@
 
     .social-links a {
       font-size: 1.8rem;
+      display: inline-block;
       padding: 10px;
       border-radius: 50%;
       background: #222;
@@ -235,15 +197,15 @@
 
     .social-links a:hover {
       box-shadow: 0 0 24px #00bfffcc;
-      transform: scale(1.15);
+      transform: scale(1.2);
     }
 
     footer {
-      background: rgba(31, 31, 31, 0.7);
+      background: #1f1f1f;
       text-align: center;
       padding: 1rem;
       font-size: 0.9rem;
-      color: #aaa;
+      color: #555;
     }
 
     #backToTop {
@@ -268,54 +230,83 @@
       transform: scale(1.15);
       box-shadow: 0 0 16px #00bfffcc;
     }
+	/* Mobile Devices (up to 600px) */
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 1.8rem;
+  }
 
-    @media (max-width: 600px) {
-      header h1 {
-        font-size: 1.8rem;
-      }
+  header p {
+    font-size: 1rem;
+  }
 
-      .greeting-text {
-        font-size: 1.4rem;
-      }
+  nav a {
+    display: block;
+    margin: 10px 0;
+    font-size: 1rem;
+  }
 
-      nav a {
-        display: block;
-        margin: 10px 0;
-      }
+  .skills-list {
+    flex-direction: column;
+    align-items: center;
+  }
 
-      .profile-img img {
-        width: 150px;
-      }
+  .project {
+    width: 90%;
+  }
 
-      .skills-list {
-        flex-direction: column;
-        align-items: center;
-      }
+  .projects-grid {
+    flex-direction: column;
+    align-items: center;
+  }
 
-      .projects-grid {
-        flex-direction: column;
-        align-items: center;
-      }
+  .social-links {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
 
-      .project {
-        width: 100%;
-        max-width: 300px;
-      }
-    }
+/* Tablets (601px to 900px) */
+@media (min-width: 601px) and (max-width: 900px) {
+  header h1 {
+    font-size: 2.2rem;
+  }
+
+  nav a {
+    margin: 0 10px;
+    font-size: 1.1rem;
+  }
+
+  .skills-list {
+    gap: 10px;
+  }
+
+  .project {
+    width: 45%;
+  }
+
+  .projects-grid {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
   </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 </head>
 <body>
-  <header>
-    <div class="greeting-text" id="greeting">WELCOME</div>
-    <h1>A.NATHANIEL ROHITH</h1>
-    <p>Web Developer & Designer | Problem Solver | Tech Enthusiast</p>
-    <nav>
-      <a href="#about">About Me</a>
-      <a href="#skills">Skills</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact Me</a>
-    </nav>
-  </header>
+
+<header>
+  <h1>A.NATHANIEL ROHITH</h1>
+  <p>Web Developer & Designer | Problem Solver | Tech Enthusiast</p>
+  <nav>
+    <a href="#about">About Me</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact Me</a>
+  </nav>
+</header>
+
 <main>
   <section id="about">
     <h2>About Me</h2>
@@ -404,44 +395,26 @@
 	  &copy; 2025 A.NATHANIEL ROHITH. All rights reserved.
 	</footer>
 
-  <button id="backToTop" title="Back to top">↑</button>
+	<!-- Back to Top Button -->
+	<button id="backToTop" title="Back to top">↑</button>
 
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const greetingEl = document.getElementById("greeting");
-      const hour = new Date().getHours();
-      let greeting;
-      if (hour < 12) {
-        greeting = "GOOD MORNING";
-      } else if (hour < 18) {
-        greeting = "GOOD AFTERNOON";
-      } else {
-        greeting = "GOOD EVENING";
-      }
-      greetingEl.textContent = greeting;
+	<script>
+	  const backToTopBtn = document.getElementById("backToTop");
 
-      const sections = document.querySelectorAll("section");
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("active");
-            observer.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.1 });
+	  window.addEventListener("scroll", () => {
+		if (window.scrollY > 300) {
+		  backToTopBtn.style.display = "block";
+		} else {
+		  backToTopBtn.style.display = "none";
+		}
+	  });
 
-      sections.forEach(section => observer.observe(section));
-
-      // Back to Top button
-      const backToTopBtn = document.getElementById("backToTop");
-      window.addEventListener("scroll", () => {
-        backToTopBtn.style.display = window.scrollY > 300 ? "block" : "none";
-      });
-
-      backToTopBtn.addEventListener("click", () => {
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      });
-    });
-  </script>
+	  backToTopBtn.addEventListener("click", () => {
+		window.scrollTo({
+		  top: 0,
+		  behavior: "smooth"
+		});
+	  });
+	</script>
 </body>
 </html>
